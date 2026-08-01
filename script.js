@@ -1,18 +1,20 @@
-// ===============================
+// =============================
 // BRANDY DESIGNS SCRIPT
-// ===============================
+// =============================
 
 // Loader
+
 window.addEventListener("load", () => {
 
-    const loader = document.querySelector(".loader");
+const loader = document.querySelector(".loader");
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
+loader.style.opacity = "0";
 
-    }, 2500);
+loader.style.visibility = "hidden";
+
+}, 1800);
 
 });
 
@@ -22,17 +24,19 @@ const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 50) {
+if (window.scrollY > 50) {
 
-        header.style.background = "rgba(0,0,0,.92)";
-        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+header.style.background = "rgba(0,0,0,.92)";
 
-    } else {
+header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
 
-        header.style.background = "rgba(0,0,0,.72)";
-        header.style.boxShadow = "none";
+} else {
 
-    }
+header.style.background = "rgba(0,0,0,.75)";
+
+header.style.boxShadow = "none";
+
+}
 
 });
 
@@ -42,16 +46,29 @@ const progressBar = document.getElementById("progress-bar");
 
 window.addEventListener("scroll", () => {
 
-    const scroll =
-        document.documentElement.scrollTop;
+const scroll = document.documentElement.scrollTop;
 
-    const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+const height =
 
-    const progress = (scroll / height) * 100;
+document.documentElement.scrollHeight -
 
-    progressBar.style.width = progress + "%";
+document.documentElement.clientHeight;
+
+const progress = (scroll / height) * 100;
+
+progressBar.style.width = progress + "%";
+
+});
+
+// Mobile Menu
+
+const menuBtn = document.querySelector(".menu-btn");
+
+const navLinks = document.querySelector(".nav-links");
+
+menuBtn.addEventListener("click", () => {
+
+navLinks.classList.toggle("show");
 
 });
 
@@ -61,64 +78,132 @@ const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 500) {
+if (window.scrollY > 500) {
 
-        topBtn.style.display = "block";
+topBtn.style.display = "flex";
 
-    } else {
+} else {
 
-        topBtn.style.display = "none";
+topBtn.style.display = "none";
 
-    }
-
-});
-
-topBtn.onclick = () => {
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-};
-
-// Mobile Menu
-
-const menuBtn = document.querySelector(".menu-btn");
-
-const navLinks = document.querySelector(".nav-links");
-
-menuBtn.addEventListener("click",()=>{
-
-    navLinks.classList.toggle("show");
+}
 
 });
 
-// Fade Animation
+topBtn.addEventListener("click", () => {
 
-const observer = new IntersectionObserver((entries)=>{
+window.scrollTo({
 
-    entries.forEach(entry=>{
+top: 0,
 
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},{
-    threshold:.2
-});
-
-document.querySelectorAll("section").forEach(section=>{
-
-    section.classList.add("hidden");
-
-    observer.observe(section);
+behavior: "smooth"
 
 });
+
+});
+
+// Scroll Animation
+
+const observer = new IntersectionObserver((entries) => {
+
+entries.forEach((entry) => {
+
+if (entry.isIntersecting) {
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+}, {
+
+threshold: 0.2
+
+});
+
+document.querySelectorAll("section").forEach((section) => {
+
+section.classList.add("hidden");
+
+observer.observe(section);
+
+});
+
+// Active Navbar Link
+
+const sections = document.querySelectorAll("section");
+
+const navItems = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach((section) => {
+
+const sectionTop = section.offsetTop - 120;
+
+if (pageYOffset >= sectionTop) {
+
+current = section.getAttribute("id");
+
+}
+
+});
+
+navItems.forEach((link) => {
+
+link.classList.remove("active");
+
+if (link.getAttribute("href") === "#" + current) {
+
+link.classList.add("active");
+
+}
+
+});
+
+});
+
+// Hero Image Floating Effect
+
+const heroImage = document.querySelector(".hero-image img");
+
+setInterval(() => {
+
+heroImage.animate([
+
+{
+
+transform: "translateY(0px)"
+
+},
+
+{
+
+transform: "translateY(-12px)"
+
+},
+
+{
+
+transform: "translateY(0px)"
+
+}
+
+], {
+
+duration: 3000,
+
+iterations: 1
+
+});
+
+}, 3000);
+
+// Console Message
+
+console.log("%cBrandy Designs", "font-size:24px;color:gold;font-weight:bold;");
+
+console.log("Designed by Palwasha Mir");
