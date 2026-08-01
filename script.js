@@ -1,123 +1,147 @@
-// ===========================
-// Brandy Portfolio Script
-// ===========================
+// ==========================
+// BRANDY DESIGNS
+// Premium Portfolio Script
+// ==========================
 
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e) {
-    e.preventDefault();
+// Scroll Progress Bar
+const progressBar = document.getElementById("progress-bar");
 
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth"
+window.addEventListener("scroll", () => {
+
+    const scrollTop = document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = (scrollTop / scrollHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+
+});
+
+// Back To Top Button
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 400) {
+
+        topBtn.style.display = "flex";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+topBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
     });
-  });
-});
-
-// Navbar background on scroll
-window.addEventListener("scroll", function () {
-
-  const header = document.querySelector("header");
-
-  if(window.scrollY > 80){
-      header.style.background = "#000";
-      header.style.boxShadow = "0 5px 20px rgba(0,0,0,.4)";
-  }else{
-      header.style.background = "rgba(0,0,0,.85)";
-      header.style.boxShadow = "none";
-  }
 
 });
 
-// Fade-in animation
-const observer = new IntersectionObserver((entries)=>{
+// Sticky Navbar
 
-entries.forEach(entry=>{
+const header = document.querySelector("header");
 
-if(entry.isIntersecting){
+window.addEventListener("scroll", () => {
 
-entry.target.classList.add("show");
+    if (window.scrollY > 50) {
 
-}
+        header.style.background = "rgba(0,0,0,.92)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.4)";
 
-});
+    } else {
 
-});
+        header.style.background = "rgba(0,0,0,.75)";
+        header.style.boxShadow = "none";
 
-document.querySelectorAll("section").forEach((section)=>{
-
-section.classList.add("hidden");
-
-observer.observe(section);
+    }
 
 });
 
-// Typing effect
-const roles=[
-"Creative Web Designer",
-"Frontend Developer",
-"UI / UX Designer",
-"Brand Identity Designer"
-];
+// Mobile Menu
 
-let roleIndex=0;
-let charIndex=0;
+const menuBtn = document.querySelector(".menu-btn");
+const navLinks = document.querySelector(".nav-links");
 
-const heading=document.querySelector(".hero-text h2");
+menuBtn.addEventListener("click", () => {
 
-function typeRole(){
+    navLinks.classList.toggle("show");
 
-if(!heading) return;
+});
 
-if(charIndex<roles[roleIndex].length){
+// Fade Animation
 
-heading.textContent+=roles[roleIndex].charAt(charIndex);
+const observer = new IntersectionObserver((entries) => {
 
-charIndex++;
+    entries.forEach(entry => {
 
-setTimeout(typeRole,80);
+        if (entry.isIntersecting) {
 
-}else{
+            entry.target.classList.add("show-element");
 
-setTimeout(eraseRole,1800);
+        }
+
+    });
+
+}, {
+
+    threshold: 0.2
+
+});
+
+document.querySelectorAll("section").forEach(section => {
+
+    section.classList.add("hidden-element");
+
+    observer.observe(section);
+
+});
+/* Animation */
+
+.hidden-element{
+
+opacity:0;
+transform:translateY(60px);
+transition:all .8s ease;
+
+}
+
+.show-element{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+/* Mobile Menu */
+
+@media(max-width:992px){
+
+.nav-links.show{
+
+display:flex;
+flex-direction:column;
+position:absolute;
+top:85px;
+left:0;
+width:100%;
+background:#050505;
+padding:30px;
+gap:20px;
+text-align:center;
 
 }
 
 }
-
-function eraseRole(){
-
-if(charIndex>0){
-
-heading.textContent=roles[roleIndex].substring(0,charIndex-1);
-
-charIndex--;
-
-setTimeout(eraseRole,40);
-
-}else{
-
-roleIndex++;
-
-if(roleIndex>=roles.length){
-
-roleIndex=0;
-
-}
-
-setTimeout(typeRole,300);
-
-}
-
-}
-
-window.onload=()=>{
-
-if(heading){
-
-heading.textContent="";
-
-typeRole();
-
-}
-
-};
