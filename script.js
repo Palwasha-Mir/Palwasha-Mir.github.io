@@ -1,52 +1,18 @@
-// ==========================
-// BRANDY DESIGNS
-// Premium Portfolio Script
-// ==========================
+// ===============================
+// BRANDY DESIGNS SCRIPT
+// ===============================
 
-// Scroll Progress Bar
-const progressBar = document.getElementById("progress-bar");
+// Loader
+window.addEventListener("load", () => {
 
-window.addEventListener("scroll", () => {
+    const loader = document.querySelector(".loader");
 
-    const scrollTop = document.documentElement.scrollTop;
+    setTimeout(() => {
 
-    const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
 
-    const progress = (scrollTop / scrollHeight) * 100;
-
-    progressBar.style.width = progress + "%";
-
-});
-
-// Back To Top Button
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 400) {
-
-        topBtn.style.display = "flex";
-
-    } else {
-
-        topBtn.style.display = "none";
-
-    }
-
-});
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
-
-    });
+    }, 2500);
 
 });
 
@@ -59,23 +25,73 @@ window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
 
         header.style.background = "rgba(0,0,0,.92)";
-        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.4)";
+        header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
 
     } else {
 
-        header.style.background = "rgba(0,0,0,.75)";
+        header.style.background = "rgba(0,0,0,.72)";
         header.style.boxShadow = "none";
 
     }
 
 });
 
+// Scroll Progress Bar
+
+const progressBar = document.getElementById("progress-bar");
+
+window.addEventListener("scroll", () => {
+
+    const scroll =
+        document.documentElement.scrollTop;
+
+    const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress = (scroll / height) * 100;
+
+    progressBar.style.width = progress + "%";
+
+});
+
+// Back To Top
+
+const topBtn = document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 500) {
+
+        topBtn.style.display = "block";
+
+    } else {
+
+        topBtn.style.display = "none";
+
+    }
+
+});
+
+topBtn.onclick = () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+};
+
 // Mobile Menu
 
 const menuBtn = document.querySelector(".menu-btn");
+
 const navLinks = document.querySelector(".nav-links");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.addEventListener("click",()=>{
 
     navLinks.classList.toggle("show");
 
@@ -83,65 +99,26 @@ menuBtn.addEventListener("click", () => {
 
 // Fade Animation
 
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries)=>{
 
-    entries.forEach(entry => {
+    entries.forEach(entry=>{
 
-        if (entry.isIntersecting) {
+        if(entry.isIntersecting){
 
-            entry.target.classList.add("show-element");
+            entry.target.classList.add("show");
 
         }
 
     });
 
-}, {
-
-    threshold: 0.2
-
+},{
+    threshold:.2
 });
 
-document.querySelectorAll("section").forEach(section => {
+document.querySelectorAll("section").forEach(section=>{
 
-    section.classList.add("hidden-element");
+    section.classList.add("hidden");
 
     observer.observe(section);
 
 });
-/* Animation */
-
-.hidden-element{
-
-opacity:0;
-transform:translateY(60px);
-transition:all .8s ease;
-
-}
-
-.show-element{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-/* Mobile Menu */
-
-@media(max-width:992px){
-
-.nav-links.show{
-
-display:flex;
-flex-direction:column;
-position:absolute;
-top:85px;
-left:0;
-width:100%;
-background:#050505;
-padding:30px;
-gap:20px;
-text-align:center;
-
-}
-
-}
