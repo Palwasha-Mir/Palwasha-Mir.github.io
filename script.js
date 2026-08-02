@@ -1,209 +1,206 @@
-// =============================
-// BRANDY DESIGNS SCRIPT
-// =============================
+// ==========================================
+// BRANDY DESIGNS v2.0
+// Premium Portfolio Script
+// ==========================================
 
 // Loader
-
 window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
 
-const loader = document.querySelector(".loader");
-
-setTimeout(() => {
-
-loader.style.opacity = "0";
-
-loader.style.visibility = "hidden";
-
-}, 1800);
-
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+    }, 1800);
 });
 
-// Sticky Navbar
+// Cursor Glow
+const cursor = document.querySelector(".cursor-glow");
 
+document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+// Sticky Header
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
 
-if (window.scrollY > 50) {
+    if (window.scrollY > 50) {
 
-header.style.background = "rgba(0,0,0,.92)";
+        header.style.background = "rgba(5,5,5,.90)";
+        header.style.boxShadow = "0 15px 40px rgba(0,0,0,.45)";
 
-header.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
+    } else {
 
-} else {
+        header.style.background = "rgba(5,5,5,.65)";
+        header.style.boxShadow = "none";
 
-header.style.background = "rgba(0,0,0,.75)";
-
-header.style.boxShadow = "none";
-
-}
+    }
 
 });
 
 // Scroll Progress Bar
-
 const progressBar = document.getElementById("progress-bar");
 
 window.addEventListener("scroll", () => {
 
-const scroll = document.documentElement.scrollTop;
+    const scrollTop = document.documentElement.scrollTop;
 
-const height =
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-document.documentElement.scrollHeight -
+    const progress = (scrollTop / scrollHeight) * 100;
 
-document.documentElement.clientHeight;
-
-const progress = (scroll / height) * 100;
-
-progressBar.style.width = progress + "%";
+    progressBar.style.width = progress + "%";
 
 });
 
 // Mobile Menu
-
 const menuBtn = document.querySelector(".menu-btn");
-
 const navLinks = document.querySelector(".nav-links");
 
 menuBtn.addEventListener("click", () => {
 
-navLinks.classList.toggle("show");
+    navLinks.classList.toggle("show");
+
+});
+
+// Close Menu After Click
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("show");
+
+    });
 
 });
 
 // Back To Top
-
 const topBtn = document.getElementById("topBtn");
 
 window.addEventListener("scroll", () => {
 
-if (window.scrollY > 500) {
+    if (window.scrollY > 500) {
 
-topBtn.style.display = "flex";
+        topBtn.style.display = "flex";
 
-} else {
+    } else {
 
-topBtn.style.display = "none";
+        topBtn.style.display = "none";
 
-}
+    }
 
 });
 
 topBtn.addEventListener("click", () => {
 
-window.scrollTo({
+    window.scrollTo({
 
-top: 0,
+        top: 0,
 
-behavior: "smooth"
+        behavior: "smooth"
+
+    });
 
 });
 
-});
-
-// Scroll Animation
+// Reveal Animation
+const revealElements = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver((entries) => {
 
-entries.forEach((entry) => {
+    entries.forEach((entry) => {
 
-if (entry.isIntersecting) {
+        if (entry.isIntersecting) {
 
-entry.target.classList.add("show");
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
 
-}
+        }
 
-});
+    });
 
 }, {
 
-threshold: 0.2
+    threshold: 0.15
 
 });
 
-document.querySelectorAll("section").forEach((section) => {
+revealElements.forEach((section) => {
 
-section.classList.add("hidden");
+    section.style.opacity = "0";
+    section.style.transform = "translateY(70px)";
+    section.style.transition = ".8s ease";
 
-observer.observe(section);
+    observer.observe(section);
 
 });
 
-// Active Navbar Link
+// Floating Hero Image
+const heroImage = document.querySelector(".image-wrapper img");
 
+if (heroImage) {
+
+    setInterval(() => {
+
+        heroImage.animate(
+
+            [
+                { transform: "translateY(0px)" },
+                { transform: "translateY(-12px)" },
+                { transform: "translateY(0px)" }
+            ],
+
+            {
+                duration: 3000,
+                iterations: 1
+            }
+
+        );
+
+    }, 3000);
+
+}
+
+// Active Navigation
 const sections = document.querySelectorAll("section");
-
 const navItems = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", () => {
 
-let current = "";
+    let current = "";
 
-sections.forEach((section) => {
+    sections.forEach(section => {
 
-const sectionTop = section.offsetTop - 120;
+        const sectionTop = section.offsetTop - 120;
 
-if (pageYOffset >= sectionTop) {
+        if (pageYOffset >= sectionTop) {
 
-current = section.getAttribute("id");
+            current = section.getAttribute("id");
 
-}
+        }
 
-});
+    });
 
-navItems.forEach((link) => {
+    navItems.forEach(link => {
 
-link.classList.remove("active");
+        link.classList.remove("active");
 
-if (link.getAttribute("href") === "#" + current) {
+        if (link.getAttribute("href") === "#" + current) {
 
-link.classList.add("active");
+            link.classList.add("active");
 
-}
+        }
 
-});
-
-});
-
-// Hero Image Floating Effect
-
-const heroImage = document.querySelector(".hero-image img");
-
-setInterval(() => {
-
-heroImage.animate([
-
-{
-
-transform: "translateY(0px)"
-
-},
-
-{
-
-transform: "translateY(-12px)"
-
-},
-
-{
-
-transform: "translateY(0px)"
-
-}
-
-], {
-
-duration: 3000,
-
-iterations: 1
+    });
 
 });
-
-}, 3000);
 
 // Console Message
-
-console.log("%cBrandy Designs", "font-size:24px;color:gold;font-weight:bold;");
+console.log("%cBrandy Designs",
+"font-size:28px;color:#D4AF37;font-weight:bold;");
 
 console.log("Designed by Palwasha Mir");
