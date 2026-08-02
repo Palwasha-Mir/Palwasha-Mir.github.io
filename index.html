@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brandy Designs | Palwasha Mir</title>
-    <!-- FontAwesome Icons -->
+    <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #0b0d17;
-            --card-bg: rgba(22, 27, 46, 0.6);
-            --gold: #d4af37;
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7);
+            --bg-dark: #040814;
+            --neon-blue: #00f0ff;
+            --tech-cyan: #38bdf8;
+            --card-bg: rgba(10, 20, 40, 0.65);
+            --border-glow: rgba(0, 240, 255, 0.25);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
         }
@@ -28,35 +28,35 @@
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
         }
 
-        /* Navbar */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 8%;
-            background: rgba(11, 13, 23, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(4, 8, 20, 0.85);
+            backdrop-filter: blur(16px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-glow);
         }
 
         .logo {
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.6rem;
-            font-weight: 800;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
             letter-spacing: 1px;
         }
 
@@ -69,7 +69,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--neon-blue);
         }
 
         /* Hero Section */
@@ -78,37 +78,35 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 120px 8% 60px;
+            padding: 130px 8% 60px;
             gap: 40px;
         }
 
-        .hero-text {
-            flex: 1;
-        }
+        .hero-text { flex: 1; }
 
         .badge {
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid var(--border-glow);
             padding: 6px 16px;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
         }
 
         .hero-text h1 {
             font-size: 3.5rem;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 15px;
             font-weight: 800;
         }
 
         .hero-text h1 span {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
         }
 
         .hero-text p {
@@ -116,6 +114,7 @@
             font-size: 1.1rem;
             margin-bottom: 30px;
             max-width: 550px;
+            line-height: 1.6;
         }
 
         .btn-group {
@@ -136,25 +135,26 @@
         }
 
         .btn-primary {
-            background: var(--gold-gradient);
+            background: var(--neon-blue);
             color: #000;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            font-weight: 700;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
         }
 
         .btn-outline {
             background: transparent;
             color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--border-glow);
         }
 
         .btn-outline:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
             transform: translateY(-3px);
         }
 
@@ -167,50 +167,52 @@
 
         .hero-img {
             width: 100%;
-            max-width: 420px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: float 6s ease-in-out infinite;
+            max-width: 480px;
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.25);
+            border: 1px solid var(--border-glow);
+            animation: float 5s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-12px); }
         }
 
-        /* Stats Dashboard */
+        /* Tech Dashboard Grid */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
-            padding: 40px 8%;
+            padding: 20px 8% 60px;
         }
 
         .dash-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glow);
             padding: 25px;
             border-radius: 16px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             transition: 0.3s;
         }
 
         .dash-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.3);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
         }
 
         .dash-card i {
             font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 10px;
+            color: var(--neon-blue);
+            margin-bottom: 12px;
         }
 
         .dash-card h3 {
-            font-size: 2rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
         .dash-card p {
@@ -218,10 +220,8 @@
             font-size: 0.9rem;
         }
 
-        /* Sections General */
-        section {
-            padding: 80px 8%;
-        }
+        /* Skills Section */
+        section { padding: 80px 8%; }
 
         .section-title {
             text-align: center;
@@ -231,13 +231,11 @@
         .section-title h2 {
             font-size: 2.2rem;
             font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        .section-title p {
-            color: var(--text-sub);
-        }
+        .section-title p { color: var(--text-sub); }
 
-        /* Skills Grid */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -246,8 +244,8 @@
         }
 
         .skill-badge {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 20, 40, 0.8);
+            border: 1px solid var(--border-glow);
             padding: 12px 24px;
             border-radius: 30px;
             display: flex;
@@ -258,12 +256,13 @@
         }
 
         .skill-badge:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.05);
-            color: var(--gold);
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            transform: translateY(-2px);
         }
 
-        /* Showcase / Video Gallery */
+        /* Showcase Gallery */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -274,13 +273,14 @@
             background: var(--card-bg);
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glow);
             transition: 0.3s;
         }
 
         .video-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(212, 175, 55, 0.4);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
         }
 
         .video-card video {
@@ -289,13 +289,12 @@
             display: block;
         }
 
-        .video-info {
-            padding: 20px;
-        }
+        .video-info { padding: 20px; }
 
         .video-info h3 {
             font-size: 1.2rem;
             margin-bottom: 8px;
+            color: var(--text-main);
         }
 
         .video-info p {
@@ -303,10 +302,10 @@
             font-size: 0.9rem;
         }
 
-        /* Footer / Contact */
+        /* Footer */
         footer {
-            background: rgba(5, 7, 13, 0.95);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(2, 4, 10, 0.95);
+            border-top: 1px solid var(--border-glow);
             padding: 60px 8% 30px;
             text-align: center;
         }
@@ -319,30 +318,23 @@
             flex-wrap: wrap;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 100px;
+                padding-top: 110px;
             }
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-            .nav-links {
-                display: none;
-            }
+            .hero-text h1 { font-size: 2.4rem; }
+            .btn-group { justify-content: center; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Header Navigation -->
     <nav>
-        <div class="logo">BRANDY DESIGNS</div>
+        <div class="logo">&lt;BRANDY DESIGNS /&gt;</div>
         <div class="nav-links">
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
@@ -355,71 +347,71 @@
     <!-- Hero Section -->
     <header class="hero" id="about">
         <div class="hero-text">
-            <span class="badge"><i class="fa-solid fa-sparkles"></i> Available For Freelance Projects</span>
+            <span class="badge"><i class="fa-solid fa-code"></i> UI/UX & Web Development Specialist</span>
             <h1>Hi, I'm <span>Palwasha Mir</span></h1>
-            <p>Founder of <b>Brandy Designs</b>. UI/UX Specialist & Custom Web Designer. Main aesthetic websites aur premium digital experiences design karti hoon.</p>
+            <p>Founder of <b>Brandy Designs</b>. Main modern UI/UX design, custom landing sites, aur aesthetic interactive websites banati hoon.</p>
             <div class="btn-group">
-                <a href="https://wa.me/923348147509" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Hire Me</a>
-                <a href="#showcase" class="btn btn-outline"><i class="fa-solid fa-play"></i> View Work</a>
+                <a href="https://wa.me/923348147509" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Direct Chat</a>
+                <a href="#showcase" class="btn btn-outline"><i class="fa-solid fa-play"></i> View Demos</a>
             </div>
         </div>
         <div class="hero-img-container">
-            <img src="hero.jpg" alt="Palwasha Mir - Brandy Designs" class="hero-img">
+            <img src="./hero.jpg" alt="Web Development - Brandy Designs" class="hero-img">
         </div>
     </header>
 
-    <!-- Stats Dashboard -->
+    <!-- Dashboard Metrics -->
     <div class="dashboard-grid">
         <div class="dash-card">
-            <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <h3>Modern UI</h3>
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Modern UI/UX</h3>
             <p>Glassmorphic Aesthetics</p>
         </div>
         <div class="dash-card">
             <i class="fa-solid fa-mobile-screen"></i>
-            <h3>100% Responsive</h3>
+            <h3>Responsive</h3>
             <p>Mobile & Desktop Ready</p>
         </div>
         <div class="dash-card">
-            <i class="fa-solid fa-bolt"></i>
-            <h3>Fast Performance</h3>
-            <p>Clean Code Standards</p>
-        </div>
-        <div class="dash-card">
-            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-layer-group"></i>
             <h3>Custom Events</h3>
             <p>Personalized Web Portals</p>
+        </div>
+        <div class="dash-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>Clean Code</h3>
+            <p>GitHub Hosted</p>
         </div>
     </div>
 
     <!-- Skills Section -->
     <section id="skills">
         <div class="section-title">
-            <h2>My Expertise</h2>
-            <p>Languages, Tools & Frameworks I Work With</p>
+            <h2>Technical Skills</h2>
+            <p>Technologies & Tools I Use</p>
         </div>
         <div class="skills-container">
-            <div class="skill-badge"><i class="fa-brands fa-figma" style="color: #a259ff;"></i> UI/UX Design</div>
+            <div class="skill-badge"><i class="fa-brands fa-figma" style="color: #00f0ff;"></i> UI/UX Design</div>
             <div class="skill-badge"><i class="fa-brands fa-html5" style="color: #e34f26;"></i> HTML5</div>
             <div class="skill-badge"><i class="fa-brands fa-css3-alt" style="color: #1572b6;"></i> CSS3 & Animations</div>
             <div class="skill-badge"><i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript</div>
             <div class="skill-badge"><i class="fa-brands fa-java" style="color: #5382a1;"></i> Java</div>
             <div class="skill-badge"><i class="fa-brands fa-wordpress" style="color: #21759b;"></i> WordPress</div>
-            <div class="skill-badge"><i class="fa-brands fa-github" style="color: #fff;"></i> GitHub</div>
-            <div class="skill-badge"><i class="fa-solid fa-layer-group" style="color: #d4af37;"></i> Landing Pages</div>
+            <div class="skill-badge"><i class="fa-brands fa-github"></i> Git & GitHub</div>
+            <div class="skill-badge"><i class="fa-solid fa-cubes" style="color: #00f0ff;"></i> Landing Sites</div>
         </div>
     </section>
 
-    <!-- Custom Event Websites Showcase -->
+    <!-- Event Services Showcase -->
     <section id="services">
         <div class="section-title">
-            <h2>Specialized Event Websites</h2>
-            <p>Personalized Websites Main Tailor-Made Banati Hoon</p>
+            <h2>Custom Event Websites</h2>
+            <p>Tailor-Made Aesthetic Sites For Special Occasions</p>
         </div>
         <div class="skills-container">
-            <div class="skill-badge">🎉 Birthday Websites</div>
+            <div class="skill-badge">🎂 Birthday Websites</div>
             <div class="skill-badge">💍 Wedding & Engagement Invitations</div>
-            <div class="skill-badge">❤️ Anniversary & Proposal Sites</div>
+            <div class="skill-badge">💖 Anniversary & Proposal Sites</div>
             <div class="skill-badge">💌 Thank You & Appreciation Pages</div>
             <div class="skill-badge">🌙 Eid & New Year Greeting Websites</div>
             <div class="skill-badge">🎓 Graduation Celebration Pages</div>
@@ -427,47 +419,47 @@
         </div>
     </section>
 
-    <!-- Showcase Video Section -->
+    <!-- Video Gallery Section -->
     <section id="showcase">
         <div class="section-title">
-            <h2>Featured Work & Motion Showcase</h2>
-            <p>Visual Demos of Brandy Designs</p>
+            <h2>Visual Project Demos</h2>
+            <p>Video Showcase of Brandy Designs</p>
         </div>
         <div class="video-grid">
             <div class="video-card">
-                <video controls autoplay muted loop>
-                    <source src="video1.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                <video controls playsinline preload="metadata">
+                    <source src="./video1.mp4" type="video/mp4">
+                    Your browser does not support video play.
                 </video>
                 <div class="video-info">
-                    <h3>Custom Celebration & Greeting Sites Concept</h3>
-                    <p>Glassmorphic UI preview for custom event portals.</p>
+                    <h3>Custom Greeting Sites Showcase</h3>
+                    <p>Interactive glassmorphic aesthetic concepts.</p>
                 </div>
             </div>
             <div class="video-card">
-                <video controls autoplay muted loop>
-                    <source src="video2.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                <video controls playsinline preload="metadata">
+                    <source src="./video2.mp4" type="video/mp4">
+                    Your browser does not support video play.
                 </video>
                 <div class="video-info">
-                    <h3>Brandy Specialist Web Designer Laptop Intro</h3>
-                    <p>Modern dark-mode luxury branding mockup showcase.</p>
+                    <h3>Brandy Specialist Web Designer Intro</h3>
+                    <p>Modern dark UI & branding mockup preview.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Contact -->
+    <!-- Footer / Contact -->
     <footer id="contact">
-        <h2 style="font-size: 2rem; margin-bottom: 10px;">Let's Build Something Elegant Together!</h2>
-        <p style="color: var(--text-sub);">Directly Contact Me For Orders & Queries</p>
+        <h2 style="font-size: 2rem; margin-bottom: 10px;">Let's Build Something High-Tech & Unique!</h2>
+        <p style="color: var(--text-sub);">Directly contact me for orders & customization</p>
         
         <div class="contact-box">
             <a href="https://wa.me/923348147509" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> WhatsApp: 0334 8147509</a>
-            <a href="mailto:mansoor.ahmed033481@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Email Us</a>
+            <a href="mailto:mansoor.ahmed033481@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Send Email</a>
         </div>
 
-        <p style="color: rgba(255,255,255,0.2); font-size: 0.85rem; margin-top: 40px;">&copy; 2026 Brandy Designs | Designed by Palwasha Mir. All Rights Reserved.</p>
+        <p style="color: rgba(255,255,255,0.25); font-size: 0.85rem; margin-top: 40px;">&copy; 2026 Brandy Designs | Designed by Palwasha Mir. All Rights Reserved.</p>
     </footer>
 
 </body>
