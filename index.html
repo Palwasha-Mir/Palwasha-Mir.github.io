@@ -7,7 +7,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Great Vibes (Signature), Cinzel (Royal Luxury), Poppins (Clean Body) -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,11 +15,12 @@
             --bg-dark: #040814;
             --neon-blue: #00f0ff;
             --tech-cyan: #38bdf8;
-            --card-bg: rgba(10, 20, 40, 0.7);
+            --card-bg: rgba(10, 20, 40, 0.65);
             --border-glow: rgba(0, 240, 255, 0.25);
             --text-main: #f8fafc;
             --text-sub: #94a3b8;
             
+            /* Font Variables */
             --font-signature: 'Great Vibes', cursive;
             --font-luxury: 'Cinzel', serif;
             --font-body: 'Poppins', sans-serif;
@@ -64,12 +65,6 @@
             color: var(--neon-blue);
             text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
             letter-spacing: 2px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         .nav-links a {
@@ -197,17 +192,54 @@
             box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
             border: 1px solid var(--border-glow);
             animation: float 5s ease-in-out infinite;
-            cursor: pointer;
-            transition: transform 0.4s ease;
-        }
-
-        .hero-img:hover {
-            transform: scale(1.02);
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-12px); }
+        }
+
+        /* Tech Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px 8% 60px;
+        }
+
+        .dash-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: 0.3s;
+        }
+
+        .dash-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .dash-card i {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin-bottom: 12px;
+        }
+
+        .dash-card h3 {
+            font-family: var(--font-luxury);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+
+        .dash-card p {
+            color: var(--text-sub);
+            font-size: 0.88rem;
         }
 
         /* Sections */
@@ -231,153 +263,73 @@
             margin-top: 5px;
         }
 
-        /* Gallery Grid */
-        .collection-grid {
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            background: rgba(10, 20, 40, 0.8);
+            border: 1px solid var(--border-glow);
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .skill-badge:hover {
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Showcase Gallery */
+        .video-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        .collection-card {
+        .video-card {
             background: var(--card-bg);
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border-glow);
-            transition: all 0.4s ease;
-            position: relative;
-            backdrop-filter: blur(12px);
+            transition: 0.3s;
         }
 
-        .collection-card:hover {
-            transform: translateY(-8px);
+        .video-card:hover {
+            transform: translateY(-5px);
             border-color: var(--neon-blue);
             box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
         }
 
-        .card-img-wrap {
+        .video-card video {
             width: 100%;
-            height: 380px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
+            height: auto;
+            display: block;
         }
 
-        .card-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+        .video-info { padding: 20px; }
 
-        .collection-card:hover .card-img-wrap img {
-            transform: scale(1.08);
-        }
-
-        .zoom-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .card-img-wrap:hover .zoom-overlay {
-            opacity: 1;
-        }
-
-        .zoom-overlay i {
-            color: var(--neon-blue);
-            font-size: 2rem;
-            background: rgba(4, 8, 20, 0.8);
-            padding: 15px;
-            border-radius: 50%;
-            border: 1px solid var(--neon-blue);
-        }
-
-        .card-details {
-            padding: 20px;
-        }
-
-        .card-details h3 {
+        .video-info h3 {
             font-family: var(--font-luxury);
-            font-size: 1.15rem;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
             color: var(--text-main);
-            margin-bottom: 12px;
             letter-spacing: 1px;
         }
 
-        .spec-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            font-size: 0.88rem;
+        .video-info p {
             color: var(--text-sub);
-        }
-
-        .spec-list li {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .spec-list li i {
-            color: var(--tech-cyan);
-            font-size: 0.8rem;
-        }
-
-        /* Lightbox / Full Screen Modal */
-        .lightbox-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(10px);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .lightbox-modal.active {
-            display: flex;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
-            border: 1px solid var(--neon-blue);
-            object-fit: contain;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            color: var(--text-main);
-            font-size: 2.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .close-btn:hover {
-            color: var(--neon-blue);
-            transform: scale(1.1);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            font-size: 0.88rem;
         }
 
         /* Footer Section Styling */
@@ -409,6 +361,26 @@
             line-height: 1.6;
         }
 
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 0.92rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+            padding-left: 5px;
+        }
+
         .social-icons {
             display: flex;
             gap: 15px;
@@ -435,6 +407,27 @@
             color: var(--neon-blue);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
             transform: translateY(-3px);
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid var(--border-glow);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--neon-blue);
         }
 
         .footer-bottom {
@@ -483,19 +476,14 @@
 </head>
 <body>
 
-    <!-- Lightbox Modal for Full View -->
-    <div class="lightbox-modal" id="lightbox">
-        <span class="close-btn" onclick="closeLightbox()">&times;</span>
-        <img class="modal-content" id="lightbox-img" src="" alt="Full View">
-    </div>
-
     <!-- Header Navigation -->
     <nav>
-        <div class="logo" onclick="openTextLogo()">&lt; BRANDY DESIGNS &gt;</div>
+        <div class="logo">&lt; BRANDY DESIGNS &gt;</div>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#collection">Collection</a>
+            <a href="#skills">Skills</a>
             <a href="#services">Services</a>
+            <a href="#showcase">Showcase</a>
             <a href="#contact">Contact</a>
         </div>
     </nav>
@@ -505,299 +493,111 @@
         <div class="hero-text">
             <span class="signature-title">Palwasha Mir</span>
             <h1>BRANDY <span>DESIGNS</span></h1>
-            <span class="subtitle-badge">✧ UI/UX & Couture Portfolio ✧</span>
+            <span class="subtitle-badge">✧ UI/UX & Web Development Specialist ✧</span>
             <p>Modern UI/UX design, custom landing sites, CMS platforms, sales funnels اور aesthetic interactive websites make your business outstanding.</p>
             <div class="btn-group">
                 <a href="https://wa.me/923348147509" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Direct Chat</a>
-                <a href="#collection" class="btn btn-outline"><i class="fa-solid fa-gem"></i> View Collection</a>
+                <a href="#showcase" class="btn btn-outline"><i class="fa-solid fa-play"></i> View Demos</a>
             </div>
         </div>
         <div class="hero-img-container">
-            <img src="./pic.jpg" alt="Brandy Designs Showcase" class="hero-img" onclick="openLightbox(this.src)">
+            <img src="./pic.jpg" alt="Web Development - Brandy Designs" class="hero-img">
         </div>
     </header>
 
-    <!-- Exclusive Design Collection -->
-    <section id="collection">
-        <div class="section-title">
-            <h2>Exclusive Collection</h2>
-            <p>High-End Aesthetic Designs & Detailed Specifications</p>
+    <!-- Dashboard Metrics -->
+    <div class="dashboard-grid">
+        <div class="dash-card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h3>Modern UI/UX</h3>
+            <p>Glassmorphic Aesthetics</p>
         </div>
+        <div class="dash-card">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <h3>Responsive</h3>
+            <p>Mobile & Desktop Ready</p>
+        </div>
+        <div class="dash-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <h3>E-Commerce & CMS</h3>
+            <p>Shopify, WordPress & No-Code</p>
+        </div>
+        <div class="dash-card">
+            <i class="fa-brands fa-github"></i>
+            <h3>Clean Code</h3>
+            <p>GitHub Hosted</p>
+        </div>
+    </div>
 
-        <div class="collection-grid">
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>Technical Skills & Platforms</h2>
+            <p>Platforms, Technologies & Tools I Master</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-badge"><i class="fa-brands fa-shopify" style="color: #95bf47;"></i> Shopify</div>
+            <div class="skill-badge"><i class="fa-brands fa-wordpress" style="color: #21759b;"></i> WordPress</div>
+            <div class="skill-badge"><i class="fa-brands fa-elementor" style="color: #9b51e0;"></i> WooCommerce</div>
+            <div class="skill-badge"><i class="fa-brands fa-wix" style="color: #ffffff; background: #000; border-radius: 4px; padding: 0 4px;"></i> Wix</div>
+            <div class="skill-badge"><i class="fa-solid fa-code" style="color: #4353ff;"></i> Webflow</div>
+            <div class="skill-badge"><i class="fa-brands fa-squarespace" style="color: #fff;"></i> Squarespace</div>
+            <div class="skill-badge"><i class="fa-solid fa-wand-magic-sparkles" style="color: #00f0ff;"></i> Framer</div>
+            <div class="skill-badge"><i class="fa-brands fa-figma" style="color: #f24e1e;"></i> Figma UI/UX</div>
+            <div class="skill-badge"><i class="fa-solid fa-filter" style="color: #ff5050;"></i> ClickFunnels</div>
+            <div class="skill-badge"><i class="fa-solid fa-store" style="color: #1b2b48;"></i> BigCommerce</div>
+            <div class="skill-badge"><i class="fa-brands fa-hubspot" style="color: #ff7a59;"></i> HubSpot CMS</div>
+            <div class="skill-badge"><i class="fa-brands fa-html5" style="color: #e34f26;"></i> HTML5 / CSS3</div>
+            <div class="skill-badge"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> Tailwind CSS</div>
+            <div class="skill-badge"><i class="fa-brands fa-github"></i> GitHub</div>
+            <div class="skill-badge"><i class="fa-brands fa-java" style="color: #5382a1;"></i> Java</div>
+        </div>
+    </section>
 
-            <!-- Item 1 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_9vd8as9vd8as9vd8.jfif')">
-                    <img src="./Gemini_Generated_Image_9vd8as9vd8as9vd8.jfif" alt="Navy Embroidered Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Royal Navy Tassel Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Premium Nida Blend</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Custom / Standard (S, M, L, XL)</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Delicate Sleeve Embroidery & Tassels</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Elegant Umbrella Flare</li>
-                    </ul>
+    <!-- Event Services Showcase -->
+    <section id="services">
+        <div class="section-title">
+            <h2>Custom Event Websites</h2>
+            <p>Tailor-Made Aesthetic Sites For Special Occasions</p>
+        </div>
+        <div class="skills-container">
+            <div class="skill-badge">🎂 Birthday Websites</div>
+            <div class="skill-badge">💍 Wedding & Engagement Invitations</div>
+            <div class="skill-badge">💖 Anniversary & Proposal Sites</div>
+            <div class="skill-badge">💌 Thank You & Appreciation Pages</div>
+            <div class="skill-badge">🌙 Eid & New Year Greeting Websites</div>
+            <div class="skill-badge">🎓 Graduation Celebration Pages</div>
+            <div class="skill-badge">⏳ Countdown Websites</div>
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section id="showcase">
+        <div class="section-title">
+            <h2>Visual Project Demos</h2>
+            <p>Video Showcase of Brandy Designs</p>
+        </div>
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls playsinline preload="metadata">
+                    <source src="./custom%20pages.mp4" type="video/mp4">
+                    Your browser does not support video play.
+                </video>
+                <div class="video-info">
+                    <h3>Custom Greeting Sites Showcase</h3>
+                    <p>Interactive glassmorphic aesthetic concepts.</p>
                 </div>
             </div>
-
-            <!-- Item 2 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./1.jpeg')">
-                    <img src="./1.jpeg" alt="Olive Green Embroidered Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Olive Botanical Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Breathable Soft Crepe</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Standard Sizes Available</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Floral Threadwork Accent</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Front Open Button Finish</li>
-                    </ul>
+            <div class="video-card">
+                <video controls playsinline preload="metadata">
+                    <source src="./BRANDY%20FOUNDER%20-%20Trim.mp4" type="video/mp4">
+                    Your browser does not support video play.
+                </video>
+                <div class="video-info">
+                    <h3>Brandy Specialist Web Designer Intro</h3>
+                    <p>Modern dark UI & branding mockup preview.</p>
                 </div>
             </div>
-
-            <!-- Item 3 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./2.jfif')">
-                    <img src="./2.jfif" alt="Charcoal Metallic Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Charcoal Metallic Star Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Satin Silk Coating</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Customized Tailoring</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Star Motif Cuff Embellishment</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Minimalist Formal Cut</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./5.jfif')">
-                    <img src="./5.jfif" alt="Maroon Floral Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Deep Maroon Rose Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Velvet Border Chiffon Layer</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> All Sizes Available</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Golden Thread Rose Motif</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Double-Layer Wrap Style</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./7.jfif')">
-                    <img src="./7.jfif" alt="Purple Cutwork Sleeve Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Imperial Purple Cutwork Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Lustrous Satin Linen</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Standard & Custom</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Geometric Sleeve Cutouts</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> High-Neck Straight Fit</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./8.jfif')">
-                    <img src="./8.jfif" alt="Emerald Royal Kaftan">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Emerald Palm Royal Kaftan</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Pure Silk Chiffon</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Free Size / Adjustable</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Heavy Zari & Palm Embroidery</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Flowy Cape Kaftan Cut</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./16.jpeg')">
-                    <img src="./16.jpeg" alt="Forest Green Studded Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Forest Green Studded Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Premium Matte Georgette</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> S, M, L, XL</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Rhinestone Leaf Borders</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> V-Neck Tassel Accent</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 8 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./24.jpeg')">
-                    <img src="./24.jpeg" alt="Grey Pleated Pearl Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Slate Grey Pleated Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Fine Pleated Crepe</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Custom Fitting</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Pearl Beading Front Panel</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Vertical Pleat Silhouette</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 9 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./25.jpeg')">
-                    <img src="./25.jpeg" alt="Cream Minimalist Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Ivory Minimalist Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Pure Saudi Nidha</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> All Sizes</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Subtle Lapel Collar</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Relaxed Front Open Cut</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 10 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_ozckbozckbozckbo.jfif')">
-                    <img src="./Gemini_Generated_Image_ozckbozckbozckbo.jfif" alt="Maroon Heavily Embroidered Kaftan">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Crimson Luxury Bridal Kaftan</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Rich Velvet & Georgette</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Tailored Fit</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Intricate Silver Zardozi Neckline</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Layered Drape Style</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 11 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_vnrffjvnrffjvnrf.jfif')">
-                    <img src="./Gemini_Generated_Image_vnrffjvnrffjvnrf.jfif" alt="Royal Blue Bell Sleeve Gown">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Royal Blue Bell-Sleeve Gown</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Shimmer Raw Silk</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> S, M, L, XL</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Golden Vine Embroidery</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Zipper Front with Flared Sleeves</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 12 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_y2lkey2lkey2lkey.jfif')">
-                    <img src="./Gemini_Generated_Image_y2lkey2lkey2lkey.jfif" alt="Bronze Flare Sleeve Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Metallic Bronze Elegance Gown</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Textured Silk Crepe</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Customized</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Fabric Button Front Collar</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Wide Flare Sleeve Trim</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 13 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./WhatsApp Image 2026-08-14 at 10.32.36 AM (3).jpeg')">
-                    <img src="./WhatsApp Image 2026-08-14 at 10.32.36 AM (3).jpeg" alt="Nude Beige Modern Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Nude Beige Daily Wear Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Soft Breathable Linen</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Standard Sizes</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Clean Minimal Finish</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Straight Cut Casual Fit</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 14 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_dzxtvldzxtvldzxt.jfif')">
-                    <img src="./Gemini_Generated_Image_dzxtvldzxtvldzxt.jfif" alt="Midnight Blue Belted Gown">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Midnight Blue Belted Abaya</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Dual-Tone Satin</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> S, M, L</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Delicate Neckline Threading</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Belted Waist & Zipper Accent</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 15 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_idpk38idpk38idpk.jfif')">
-                    <img src="./Gemini_Generated_Image_idpk38idpk38idpk.jfif" alt="Teal Green Tie Waist Abaya">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Teal Green Draped Gown</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Premium Silk Mix</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> Custom Fitting</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Pearl Tassel Waist Belt</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Side Draped Slit Silhouette</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Item 16 -->
-            <div class="collection-card">
-                <div class="card-img-wrap" onclick="openLightbox('./Gemini_Generated_Image_lv2rrwlv2rrwlv2r.jfif')">
-                    <img src="./Gemini_Generated_Image_lv2rrwlv2rrwlv2r.jfif" alt="Deep Purple Bow Gown">
-                    <div class="zoom-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                </div>
-                <div class="card-details">
-                    <h3>Deep Plum Bow Statement Gown</h3>
-                    <ul class="spec-list">
-                        <li><i class="fa-solid fa-shirt"></i> <strong>Fabric:</strong> Velvet Soft Texture</li>
-                        <li><i class="fa-solid fa-ruler-combined"></i> <strong>Size:</strong> S, M, L, XL</li>
-                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Style:</strong> Embroidered Floral Sprigs</li>
-                        <li><i class="fa-solid fa-cut"></i> <strong>Design:</strong> Asymmetric Bow Belt Cut</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -808,9 +608,23 @@
             <div class="footer-box">
                 <h3>BRANDY DESIGNS</h3>
                 <p>Creating modern, high-converting, and aesthetically unique websites tailored for your personal & business needs.</p>
+                <div class="availability-badge">
+                    <span class="dot"></span> Available for New Projects
+                </div>
             </div>
 
-            <!-- Col 2: Direct Contact & Social Media -->
+            <!-- Col 2: Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:var(--neon-blue);"></i> About Me</a></li>
+                    <li><a href="#skills"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:var(--neon-blue);"></i> Skills & Tools</a></li>
+                    <li><a href="#services"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:var(--neon-blue);"></i> Custom Services</a></li>
+                    <li><a href="#showcase"><i class="fa-solid fa-chevron-right" style="font-size:0.7rem; color:var(--neon-blue);"></i> Visual Demos</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Direct Contact & Social Media -->
             <div class="footer-box">
                 <h3>Connect With Me</h3>
                 <p style="margin-bottom: 12px;"><i class="fa-solid fa-envelope" style="color:var(--neon-blue);"></i> mansoor.ahmed033481@gmail.com</p>
@@ -830,44 +644,5 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactive Lightbox Full View -->
-    <script>
-        function openLightbox(imageSrc) {
-            const modal = document.getElementById('lightbox');
-            const modalImg = document.getElementById('lightbox-img');
-            modal.classList.add('active');
-            modalImg.src = imageSrc;
-        }
-
-        function closeLightbox() {
-            const modal = document.getElementById('lightbox');
-            modal.classList.remove('active');
-        }
-
-        function openTextLogo() {
-            // Generates a dynamic canvas to preview the Logo in full screen mode
-            const canvas = document.createElement('canvas');
-            canvas.width = 800;
-            canvas.height = 300;
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#040814';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.font = 'bold 45px Cinzel';
-            ctx.fillStyle = '#00f0ff';
-            ctx.textAlign = 'center';
-            ctx.shadowColor = '#00f0ff';
-            ctx.shadowBlur = 20;
-            ctx.fillText("< BRANDY DESIGNS >", canvas.width / 2, canvas.height / 2);
-            
-            openLightbox(canvas.toDataURL());
-        }
-
-        // Close Lightbox when clicking outside image
-        document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target !== document.getElementById('lightbox-img')) {
-                closeLightbox();
-            }
-        });
-    </script>
 </body>
 </html>
